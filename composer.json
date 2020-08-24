@@ -1,0 +1,6 @@
+{
+    "name": "peter/untitled",
+    "require": {
+        "petersil98/thresh": "1.0.*"
+    }
+}

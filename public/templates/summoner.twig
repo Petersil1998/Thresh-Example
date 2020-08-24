@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title></title>
+
+    <link rel="icon" href="images/favicon.png">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body>
+
+<h1 align="center">League of Legends</h1>
+    <div>
+        <div>
+            <img alt='Profile Icon' src='{{ getProfileIconURL(summoner) }}' style='width: 200px; height: 200px;' class='center'>
+        </div>
+        <div>
+            <table style='border: 0; margin-top: 10px'>
+                <tr><td class='noborder'>Summonername:</td><td class='noborder'> {{ summoner.Summonername() }} </td></tr>
+                <tr><td class='noborder'>Level:</td><td class='noborder'> {{ summoner.SummonerLevel() }}</td></tr>
+                <tr><td class='noborder'>Masterypoints:</td><td class='noborder'>{{ summoner.TotalMasteryPoints() }}</td></tr>
+                <tr><td class='noborder' style='vertical-align: top'>Revision Date:</td><td class='noborder'> {{ summoner.RevisionDate()|date("d. F Y G:i:s") }}</td></tr>
+            </table>
+        </div>
+    </div>
+    {% if game.exists %}
+        <a href='{{ "index.php?name=#{summoner.Summonername()}&id=1" }}'><button>View Live Game</button></a>
+    {% endif %}
+    {% set solo_duo = summoner.RankSoloDuo() %}
+    {% set flex_5v5 = summoner.RankFlex5v5() %}
+    {% set tft = summoner.RankTft() %}
+    <p>Ranked Solo/Duo: <img alt='' class='rank-icon' title='{{ "#{solo_duo.Tier()} #{solo_duo.Rank()}"}}' src='{{ "images/Ranks/#{solo_duo.Tier()|lower}.png" }}'></p>
+    <p>Ranked Flex 5v5: <img alt='' class='rank-icon' title='{{ "#{flex_5v5.Tier()} #{flex_5v5.Rank()}"}}' src='{{ "images/Ranks/#{flex_5v5.Tier()|lower}.png" }}'></p>
+    <p>Ranked TFT: <img alt='' class='rank-icon' title='{{ "#{tft.Tier()} #{tft.Rank()}"}}' src='{{ "images/Ranks/#{tft.Tier()|lower}.png" }}'></p>
+    <table class='mastery-list'>
+        <tr>
+            <th>Champion</th>
+            <th>Mastery Level</th>
+            <th>Points</th>
+            <th>Progress to next level</th>
+            <th>Tokens for next Level</th>
+            <th>Chest Granted</th></tr>
+            {% for championMastery in summoner.ChampionMasteries() %}
+                <tr>
+                    <td style='border-color: white;'>
+                        <img alt='' class='small-icon' src='{{ getChampionIconPath(championMastery.ChampionId()) }}'>
+                        {{ getChampion(championMastery.ChampionId()).Name() }}
+                    </td>
+                    <td style='border-color: white; text-align: center'>{{ championMastery.ChampionLevel() }}</td>
+                    <td style='border-color: white; text-align: center'>{{ championMastery.ChampionPoints() }}</td>
+                    {% if championMastery.ChampionLevel() < 5 %}
+                        <td style='border-color: white; text-align: center'>
+                            <progress value="{{ championMastery.ChampionPointsSinceLastLevel() }}" max="{{ championMastery.ChampionPointsUntilNextLevel() + championMastery.ChampionPointsSinceLastLevel() }}"></progress>
+                        </td>
+                        <td style='border-color: white; text-align: center'></td>
+                    {% else %}
+                        <td style='border-color: white; text-align: center'></td>
+                        <td style='border-color: white; text-align: center'>{{ championMastery.TokensEarned() }}</td>
+                    {% endif %}
+                    <td style='border-color: white; text-align: center'>
+                {% if championMastery.ChestGranted() == 1 %}
+                        <img class='small-icon' alt='yes' src="images/yes.png">
+                    </td>
+                </tr>
+                {% else %}
+                        <img class='small-icon' alt='yes' src="images/no.png">
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+<script type="text/javascript">
+    document.getElementsByTagName("title")[0].textContent = '{{ "#{summoner.Summonername()} - LoL Test"}}';
+</script>
+</html>

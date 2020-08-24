@@ -1,0 +1,108 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 200px;
+    font-family: "Liberation Serif";
+    font-weight: 600;
+    font-size: 17px;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: "Times New Roman";
+}
+
+button {
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+}
+
+input {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: lightgrey;
+    text-decoration: none;
+}
+
+.noborder {
+    border: 0;
+    background-color: antiquewhite;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+p{
+    text-align: center;
+}
+
+.small-icon{
+    width: 20px;
+    height: 20px;
+}
+
+.rank-icon{
+    height: 50px;
+}
+
+.game-player-row{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
+
+.background-red-team{
+    background: rgba(255,0,0,0.5);
+}
+
+.background-blue-team{
+    background: rgba(0,0,255,0.5);
+}
+
+.background-red-team-player{
+    background: rgba(139,0,0,0.5);
+}
+
+.background-blue-team-player{
+    background: rgba(0,191,255,0.5);
+}
+
+.mastery-list{
+    overflow: auto;
+    display: block;
+    height: 500px;
+    width: 70%;
+    border-color: white;
+    margin-top: 50px;
+    margin-bottom: 100px
+}
