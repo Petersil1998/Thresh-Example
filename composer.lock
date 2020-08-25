@@ -4,27 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45ad18d7f4a126f62739ec15d5132397",
+    "content-hash": "9f9ee34eeba5f5c12f35f64a44a5fa94",
     "packages": [
         {
             "name": "petersil98/thresh",
-            "version": "1.0.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Petersil1998/Thresh.git",
-                "reference": "b61319a21c59db3750caa31468cd3c85ac8cb029"
+                "reference": "631dcebe79727d8b82205671fdcb02d090d5fca3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/b61319a21c59db3750caa31468cd3c85ac8cb029",
-                "reference": "b61319a21c59db3750caa31468cd3c85ac8cb029",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/631dcebe79727d8b82205671fdcb02d090d5fca3",
+                "reference": "631dcebe79727d8b82205671fdcb02d090d5fca3",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
-                "ext-openssl": "*",
-                "twig/twig": "^2.0"
+                "ext-openssl": "*"
             },
             "type": "library",
             "autoload": {
@@ -39,7 +38,7 @@
                 }
             ],
             "description": "This is a library, that takes over the communication with the riot games API and provides the filled Objects",
-            "time": "2020-08-24T23:30:16+00:00"
+            "time": "2020-08-25T14:22:36+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -235,7 +234,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "petersil98/thresh": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
