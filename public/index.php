@@ -16,7 +16,7 @@
     use Twig\Environment;
     use Twig\TwigFunction;
 
-    $encrypted_api_key = EncryptionUtils::encrypt('RGAPI-f3744a49-50ae-4b70-b478-cc2d18ecc909');
+    $encrypted_api_key = EncryptionUtils::encrypt('');
     Config::setApiKey($encrypted_api_key);
     Config::setRegion(Regions::EUROPE);
     Config::setPlatform(Platforms::EUW);
