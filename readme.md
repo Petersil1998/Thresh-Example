@@ -1,4 +1,5 @@
-#Thresh Example
+<h1>Thresh Example</h1>
+
 This is an example project for the [Thresh](https://github.com/Petersil1998/Thresh) library.
 
 Main file: public/index.php (uses **Twig** as templating engine)
