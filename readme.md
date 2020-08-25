@@ -6,7 +6,7 @@ Main file: public/index.php (uses **Twig** as templating engine)
 
 public/summoner.php and public/game.php are pure **PHP** and **HTML** examples
 
-In order to use the **Thresh** library you have to have this code in your main PHP file:
+In order to use the **Thresh** library you must have this code in your main PHP file:
 
 Use `EncryptionUtils::encrypt('<your_api_key>')` to encrypt your RIOT API KEY which you can get [here](https://developer.riotgames.com)<br>
 Use `Config::setApiKey($encrypted_api_key)` to set your api key for the application (this key will be used for the Riot API calls)<br>
