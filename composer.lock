@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "petersil98/thresh",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Petersil1998/Thresh.git",
-                "reference": "3eda835a6a1b0f0946ce5094009086c0c5b131d7"
+                "reference": "91ca347916a6c3c772619d3f480dbbd6a0b31760"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/3eda835a6a1b0f0946ce5094009086c0c5b131d7",
-                "reference": "3eda835a6a1b0f0946ce5094009086c0c5b131d7",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/91ca347916a6c3c772619d3f480dbbd6a0b31760",
+                "reference": "91ca347916a6c3c772619d3f480dbbd6a0b31760",
                 "shasum": ""
             },
             "require": {
@@ -39,7 +39,7 @@
                 }
             ],
             "description": "This is a library, that takes over the communication with the riot games API and provides the filled Objects",
-            "time": "2020-08-31T13:35:54+00:00"
+            "time": "2020-08-31T14:08:51+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

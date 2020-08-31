@@ -32,11 +32,7 @@ use Thresh\Entities\Match\MatchDetails;
     });
     $twig->addFunction($function);
     $function = new TwigFunction('getSprite', function ($sprite) {
-        ob_start();
-        imagepng(Utils::getPNGFromSprite($sprite));
-        $image = ob_get_contents();
-        ob_end_clean();
-        return base64_encode($image);
+        return Utils::getBase64EncodedImageFromSprite($sprite);
     });
     $twig->addFunction($function);
     $function = new TwigFunction('getChampionIconPath', function ($championId) {
