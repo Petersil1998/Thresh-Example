@@ -1,7 +1,6 @@
 {
-    "name": "peter/untitled",
     "require": {
-        "petersil98/thresh": "dev-master",
+        "petersil98/thresh": "1.*",
         "twig/twig": "^2.0"
     }
 }

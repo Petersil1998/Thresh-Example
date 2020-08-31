@@ -4,24 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f9ee34eeba5f5c12f35f64a44a5fa94",
+    "content-hash": "9de432b2662f82af70c2b6e4845722b7",
     "packages": [
         {
             "name": "petersil98/thresh",
-            "version": "dev-master",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Petersil1998/Thresh.git",
-                "reference": "631dcebe79727d8b82205671fdcb02d090d5fca3"
+                "reference": "3eda835a6a1b0f0946ce5094009086c0c5b131d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/631dcebe79727d8b82205671fdcb02d090d5fca3",
-                "reference": "631dcebe79727d8b82205671fdcb02d090d5fca3",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/3eda835a6a1b0f0946ce5094009086c0c5b131d7",
+                "reference": "3eda835a6a1b0f0946ce5094009086c0c5b131d7",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
+                "ext-gd": "*",
                 "ext-json": "*",
                 "ext-openssl": "*"
             },
@@ -38,7 +39,7 @@
                 }
             ],
             "description": "This is a library, that takes over the communication with the riot games API and provides the filled Objects",
-            "time": "2020-08-25T14:22:36+00:00"
+            "time": "2020-08-31T13:35:54+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -234,9 +235,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "petersil98/thresh": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
