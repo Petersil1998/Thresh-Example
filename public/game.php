@@ -49,8 +49,8 @@
                         echo "<tr class='game-player-row'>";
                     }
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
-                    echo "<td><img alt='". $player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . ".png'> " . $player->getChampion()->getName() . "</td>";
-                    echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "</td>";
+                    echo "<td><img alt='". $player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . "'> " . $player->getChampion()->getName() . "</td>";
+                    echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
                     echo "</tr>";
                 }
                 echo "</table><p class='game-player-row' style='text-align: center; font-size: 30px; font-weight: bold; color: white; margin-top: 0; margin-bottom: 0;'>VS</p><table class='background-red-team'>";
@@ -66,7 +66,7 @@
                         echo "<tr class='game-player-row'>";
                     }
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
-                    echo "<td><img alt='".$player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . ".png'> " . $player->getChampion()->getName() . "</td>";
+                    echo "<td><img alt='".$player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . "'> " . $player->getChampion()->getName() . "</td>";
                     echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
                     echo "</tr>";
                 }

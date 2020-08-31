@@ -65,7 +65,7 @@
 
                     echo "<p>Ranked Solo/Duo: <img alt='' class='rank-icon' title='".$solo_duo->getTier() . " " . $solo_duo->getRank()."' src='images/Ranks/".strtolower($solo_duo->getTier()).".png'></p>";
                     echo "<p>Ranked Flex 5v5: <img alt='' class='rank-icon' title='".$flex_5v5->getTier() . " " . $flex_5v5->getRank()."' src='images/Ranks/".strtolower($flex_5v5->getTier()).".png'></p>";
-                    echo "<p>Ranked TFT: " . $tft->getTier() . " " . $tft->getRank() . "<img class='rank-icon' alt='".$tft->getTier()."' src='images/Ranks/".strtolower($tft->getTier()).".png'></p>";
+                    echo "<p>Ranked TFT: <img alt='' class='rank-icon' title='".$tft->getTier() . " " . $tft->getRank()."' src='images/Ranks/".strtolower($tft->getTier()).".png'></p>";
 
                     echo "<table class='mastery-list'><tr><th>Champion</th><th>Mastery Level</th><th>Points</th><th>Progress to next level</th><th>Tokens for next Level</th><th>Chest Granted</th></tr>";
 
