@@ -51,6 +51,8 @@
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
                     echo "<td><img alt='". $player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . "'> " . $player->getChampion()->getName() . "</td>";
                     echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
+                    echo "<td><img alt='".$player->getSummonerSpell1()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell1()->getSprite())."'>";
+                    echo "<img alt='".$player->getSummonerSpell2()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell2()->getSprite())."'></td>";
                     echo "</tr>";
                 }
                 echo "</table><p class='game-player-row' style='text-align: center; font-size: 30px; font-weight: bold; color: white; margin-top: 0; margin-bottom: 0;'>VS</p><table class='background-red-team'>";
@@ -68,6 +70,8 @@
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
                     echo "<td><img alt='".$player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . "'> " . $player->getChampion()->getName() . "</td>";
                     echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
+                    echo "<td><img alt='".$player->getSummonerSpell1()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell1()->getSprite())."'>";
+                    echo "<img alt='".$player->getSummonerSpell2()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell2()->getSprite())."'></td>";
                     echo "</tr>";
                 }
                 echo "</table><button onclick='location.href=\"summoner.php?name=".$_GET["name"]."\";'>Zurück</button>";
