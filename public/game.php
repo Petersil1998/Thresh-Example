@@ -34,7 +34,6 @@
             $summoner = Summoner::getSummonerByName($summonerName);
             $game = new ActiveGame($summoner);
             if ($game->exists()) {
-                echo "<div id='gameid' hidden>" . $game->getGameId() . "</div>";
                 echo "<p class='game-player-row' style='color: white;'>Map: " . $game->getMap()->getName();
                 echo "<br>Game Mode: " . $game->getGameMode();
                 echo "<br>Queue: " . $game->getQueueType()->getDescription() . "</p></div>";

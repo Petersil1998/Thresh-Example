@@ -16,7 +16,6 @@
 <body>
     {% set realName = ''%}
     <h1 align="center">League of Legends</h1>
-    <div id='gameid' hidden>{{ game.GameId() }}</div>
     <p class='game-player-row' style='color: white;'>Map: {{ game.Map().Name() }}
         <br>Game Mode: {{ game.GameMode() }}
         <br>Queue: {{ game.QueueType().Description() }}
