@@ -1,12 +1,21 @@
 <?php
     require_once '../vendor/autoload.php';
 
-    use Thresh\Collections\Champions;
-    use Thresh\Collections\Maps;
-    use Thresh\Collections\QueueTypes;
-    use Thresh\Entities\Match\ActiveGame;
+    use Thresh\Constants\Platforms;
+    use Thresh\Constants\Regions;
+    use Thresh\Entities\ActiveGame\ActiveGame;
     use Thresh\Entities\Summoner\Summoner;
-    use Thresh\Helper\Utils;?>
+    use Thresh\Helper\Config;
+    use Thresh\Helper\EncryptionUtils;
+    use Thresh\Helper\Loader;
+    use Thresh\Helper\Utils;
+
+    $encrypted_api_key = EncryptionUtils::encrypt('');
+    Config::setApiKey($encrypted_api_key);
+    Config::setRegion(Regions::EUROPE);
+    Config::setPlatform(Platforms::EUW);
+    Loader::init();
+    ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,9 +35,9 @@
             $game = new ActiveGame($summoner);
             if ($game->exists()) {
                 echo "<div id='gameid' hidden>" . $game->getGameId() . "</div>";
-                echo "<p class='game-player-row' style='color: white;'>Map: " . Maps::getMap($game->getMapId());
+                echo "<p class='game-player-row' style='color: white;'>Map: " . $game->getMap()->getName();
                 echo "<br>Game Mode: " . $game->getGameMode();
-                echo "<br>Queue: " . QueueTypes::getQueueType($game->getGameQueueConfigId()) . "</p></div>";
+                echo "<br>Queue: " . $game->getQueueType()->getDescription() . "</p></div>";
                 $blueSideTeam = $game->getBlueSideTeam();
                 foreach ($blueSideTeam AS $player) {
                     $keyRune = $player->getRunes()[0];
@@ -41,7 +50,7 @@
                         echo "<tr class='game-player-row'>";
                     }
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
-                    echo "<td><img alt='". Champions::getChampion($player->getChampionId())."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampionId()) . ".png'> " . Constants::CHAMPIONS[$player->getChampionId()] . "</td>";
+                    echo "<td><img alt='". $player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . ".png'> " . $player->getChampion()->getName() . "</td>";
                     echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "</td>";
                     echo "</tr>";
                 }
@@ -58,7 +67,7 @@
                         echo "<tr class='game-player-row'>";
                     }
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
-                    echo "<td><img alt='".Champions::getChampion($player->getChampionId())."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampionId()) . ".png'> " . Constants::CHAMPIONS[$player->getChampionId()] . "</td>";
+                    echo "<td><img alt='".$player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . ".png'> " . $player->getChampion()->getName() . "</td>";
                     echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
                     echo "</tr>";
                 }

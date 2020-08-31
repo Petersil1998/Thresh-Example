@@ -1,10 +1,21 @@
 <?php
     require_once '../vendor/autoload.php';
 
-    use Thresh\Collections\Champions;
-    use Thresh\Entities\Match\ActiveGame;
+    use Thresh\Constants\Platforms;
+    use Thresh\Constants\Regions;
+    use Thresh\Entities\ActiveGame\ActiveGame;
     use Thresh\Entities\Summoner\Summoner;
-    use Thresh\Helper\Utils;?>
+    use Thresh\Helper\Config;
+    use Thresh\Helper\EncryptionUtils;
+    use Thresh\Helper\Loader;
+    use Thresh\Helper\Utils;
+
+    $encrypted_api_key = EncryptionUtils::encrypt('');
+    Config::setApiKey($encrypted_api_key);
+    Config::setRegion(Regions::EUROPE);
+    Config::setPlatform(Platforms::EUW);
+    Loader::init();
+    ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -60,8 +71,8 @@
 
                     foreach ($summoner->getChampionMasteries() AS $championMastery) {
                         echo "<tr><td style='border-color: white;'>";
-                        echo "<img class='small-icon' src='" . Utils::getChampionIconURL($championMastery->getChampionId()) . "'>";
-                        echo Champions::getChampion($championMastery->getChampionId());
+                        echo "<img class='small-icon' src='" . Utils::getChampionIconURL($championMastery->getChampion()) . "'>";
+                        echo $championMastery->getChampion()->getName();
                         echo "</td><td style='border-color: white; text-align: center'>" . $championMastery->getChampionLevel() . "</td>";
                         echo "<td style='border-color: white; text-align: center'>" . $championMastery->getChampionPoints() . "</td>";
                         if ($championMastery->getChampionLevel() < 5) {
