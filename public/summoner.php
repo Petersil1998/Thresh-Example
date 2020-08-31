@@ -30,8 +30,8 @@
                 echo "<p>No Summonername specified</p>";
             } else {
                 $summonerName = str_replace(" ", "", $_GET["name"]);
-                $summoner = new Summoner($summonerName);
-                if(!$summoner->exists()){
+                $summoner = Summoner::getSummonerByName($summonerName);
+                if($summoner){
                     echo "<p>Summoner not found</p>";
                 } else {
                     echo "<div><div><img alt='Profile Icon' src='" .Utils::getProfileIconURL($summoner)."' style='width: 200px; height: 200px;' class='center'></div>";
@@ -42,7 +42,7 @@
                     echo "<tr><td class='noborder' style='vertical-align: top'>Revision Date:</td><td class='noborder'>" . date("d. F Y G:i:s", $summoner->getRevisionDate()) . "</td></tr>";
                     echo "</table></div></div>";
 
-                    $game = new ActiveGame($summonerName);
+                    $game = new ActiveGame($summoner);
 
                     if ($game->exists()) {
                         echo "<a href='game.php?name=" . $summoner->getSummonername() . "'><button>View Live Game</button></a>";

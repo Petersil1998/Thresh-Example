@@ -51,11 +51,11 @@
             {% for championMastery in summoner.ChampionMasteries() %}
                 <tr>
                     <td style='border-color: white;'>
-                        <img alt='' class='small-icon' src='{{ getChampionIconPath(championMastery.ChampionId()) }}'>
-                        {{ getChampion(championMastery.ChampionId()).Name() }}
+                        <img alt='' class='small-icon' src='{{ getChampionIconPath(championMastery.Champion()) }}'>
+                        {{ championMastery.Champion().Name() }}
                     </td>
                     <td style='border-color: white; text-align: center'>{{ championMastery.ChampionLevel() }}</td>
-                    <td style='border-color: white; text-align: center'>{{ championMastery.ChampionPoints() }}</td>
+                    <td style='border-color: white; text-align: center'>{{ formatNumber(championMastery.ChampionPoints()) }}</td>
                     {% if championMastery.ChampionLevel() < 5 %}
                         <td style='border-color: white; text-align: center'>
                             <progress value="{{ championMastery.ChampionPointsSinceLastLevel() }}" max="{{ championMastery.ChampionPointsUntilNextLevel() + championMastery.ChampionPointsSinceLastLevel() }}"></progress>

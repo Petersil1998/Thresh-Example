@@ -17,9 +17,9 @@
     {% set realName = ''%}
     <h1 align="center">League of Legends</h1>
     <div id='gameid' hidden>{{ game.GameId() }}</div>
-    <p class='game-player-row' style='color: white;'>Map: {{ getMap(game.MapId()).Name() }}
+    <p class='game-player-row' style='color: white;'>Map: {{ game.Map().Name() }}
         <br>Game Mode: {{ game.GameMode() }}
-        <br>Queue: {{ getQueueType(game.GameQueueConfigId()).Description() }}
+        <br>Queue: {{ game.QueueType().Description() }}
     </p>
     <div>
         <table class='background-blue-team'>
@@ -36,10 +36,14 @@
                             <a href='{{ "index.php?name=#{player.Summonername()}&id=0" }}'>{{ player.Summonername() }}</a>
                         </td>
                         <td>
-                            <img alt='{{ getChampion(player.ChampionId()).Name() }}' class='small-icon' src='{{ getChampionIconPath(player.ChampionId()) }}'> {{ getChampion(player.ChampionId()).Name() }}
+                            <img alt='{{ player.Champion().Name() }}' class='small-icon' src='{{ getChampionIconPath(player.Champion()) }}'> {{ player.Champion().Name() }}
                         </td>
                         <td>
                             <img alt='{{ keyRune.Name() }}' class='small-icon' src='{{ getRuneIconURL(keyRune) }}'>{{ keyRune.Name() }}
+                        </td>
+                        <td>
+                            <img alt='{{ player.SummonerSpell1().Name() }}' class='small-icon' src='data:image/png;base64,{{ getSprite(player.SummonerSpell1().Sprite()) }}'>
+                            <img alt='{{ player.SummonerSpell2().Name() }}' class='small-icon' src='data:image/png;base64,{{ getSprite(player.SummonerSpell2().Sprite()) }}'>
                         </td>
                     </tr>
         {% endfor %}
@@ -61,10 +65,14 @@
                     <a href='{{ "index.php?name=#{player.Summonername()}&id=0" }}'>{{ player.Summonername() }}</a>
                 </td>
                 <td>
-                    <img alt='{{ getChampion(player.ChampionId()).Name() }}' class='small-icon' src='{{ getChampionIconPath(player.ChampionId()) }}'> {{ getChampion(player.ChampionId()).Name() }}
+                    <img alt='{{ player.Champion().Name() }}' class='small-icon' src='{{ getChampionIconPath(player.Champion()) }}'> {{ player.Champion().Name() }}
                 </td>
                 <td>
                     <img alt='{{ keyRune.Name() }}' class='small-icon' src='{{ getRuneIconURL(keyRune) }}'>{{ keyRune.Name() }}
+                </td>
+                <td>
+                    <img alt='{{ player.SummonerSpell1().Name() }}' class='small-icon' src='data:image/png;base64,{{ getSprite(player.SummonerSpell1().Sprite()) }}'>
+                    <img alt='{{ player.SummonerSpell2().Name() }}' class='small-icon' src='data:image/png;base64,{{ getSprite(player.SummonerSpell2().Sprite()) }}'>
                 </td>
                 </tr>
             {% endfor %}

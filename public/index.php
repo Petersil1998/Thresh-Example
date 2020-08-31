@@ -2,11 +2,14 @@
     require_once '../vendor/autoload.php';
 
     use Thresh\Collections\Champions;
+    use Thresh\Collections\Items;
     use Thresh\Collections\Maps;
     use Thresh\Collections\QueueTypes;
+    use Thresh\Constants\Constants;
     use Thresh\Constants\Platforms;
     use Thresh\Constants\Regions;
-    use Thresh\Entities\Match\ActiveGame;
+use Thresh\Entities\ActiveGame\ActiveGame;
+use Thresh\Entities\Match\MatchDetails;
     use Thresh\Entities\Summoner\Summoner;
     use Thresh\Helper\Config;
     use Thresh\Helper\EncryptionUtils;
@@ -24,16 +27,16 @@
 
     $loader = new FilesystemLoader('templates');
     $twig = new Environment($loader);
-    $function = new TwigFunction('getMap', function ($mapId) {
-        return Maps::getMap($mapId);
+    $function = new TwigFunction('formatNumber', function ($number) {
+        return number_format($number, 0, ',', ' ');
     });
     $twig->addFunction($function);
-    $function = new TwigFunction('getChampion', function ($championId) {
-        return Champions::getChampion($championId);
-    });
-    $twig->addFunction($function);
-    $function = new TwigFunction('getQueueType', function ($queueTypeId) {
-        return QueueTypes::getQueueType($queueTypeId);
+    $function = new TwigFunction('getSprite', function ($sprite) {
+        ob_start();
+        imagepng(Utils::getPNGFromSprite($sprite));
+        $image = ob_get_contents();
+        ob_end_clean();
+        return base64_encode($image);
     });
     $twig->addFunction($function);
     $function = new TwigFunction('getChampionIconPath', function ($championId) {

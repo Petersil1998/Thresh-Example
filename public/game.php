@@ -5,7 +5,7 @@
     use Thresh\Collections\Maps;
     use Thresh\Collections\QueueTypes;
     use Thresh\Entities\Match\ActiveGame;
-    use Thresh\Helper\Constants;
+    use Thresh\Entities\Summoner\Summoner;
     use Thresh\Helper\Utils;?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -22,8 +22,8 @@
         <?php
         if(isset($_GET["name"])) {
             $summonerName = str_replace(" ", "", $_GET["name"]);
-            $i = 0;
-            $game = new ActiveGame($summonerName);
+            $summoner = Summoner::getSummonerByName($summonerName);
+            $game = new ActiveGame($summoner);
             if ($game->exists()) {
                 echo "<div id='gameid' hidden>" . $game->getGameId() . "</div>";
                 echo "<p class='game-player-row' style='color: white;'>Map: " . Maps::getMap($game->getMapId());
