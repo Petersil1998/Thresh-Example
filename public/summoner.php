@@ -1,14 +1,14 @@
 <?php
     require_once '../vendor/autoload.php';
 
-    use Thresh\Constants\Platforms;
-    use Thresh\Constants\Regions;
     use Thresh\Entities\ActiveGame\ActiveGame;
     use Thresh\Entities\Summoner\Summoner;
     use Thresh\Helper\Config;
     use Thresh\Helper\EncryptionUtils;
-    use Thresh\Helper\Loader;
-    use Thresh\Helper\Utils;
+    use Thresh_Core\Constants\Platforms;
+    use Thresh_Core\Constants\Regions;
+    use Thresh_Core\Utils\Loader;
+    use Thresh_Core\Utils\Util;
 
     $encrypted_api_key = EncryptionUtils::encrypt('');
     Config::setApiKey($encrypted_api_key);
@@ -72,7 +72,7 @@
 
                     foreach ($summoner->getChampionMasteries() AS $championMastery) {
                         echo "<tr><td style='border-color: white;'>";
-                        echo "<img class='small-icon' src='" . Utils::getChampionIconURL($championMastery->getChampion()) . "'>";
+                        echo "<img class='small-icon' src='" . Util::getChampionIconURL($championMastery->getChampion()) . "'>";
                         echo $championMastery->getChampion()->getName();
                         echo "</td><td style='border-color: white; text-align: center'>" . $championMastery->getChampionLevel() . "</td>";
                         echo "<td style='border-color: white; text-align: center'>" . $championMastery->getChampionPoints() . "</td>";

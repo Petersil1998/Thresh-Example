@@ -1,14 +1,14 @@
 <?php
     require_once '../vendor/autoload.php';
 
-    use Thresh\Constants\Platforms;
-    use Thresh\Constants\Regions;
     use Thresh\Entities\ActiveGame\ActiveGame;
     use Thresh\Entities\Summoner\Summoner;
     use Thresh\Helper\Config;
     use Thresh\Helper\EncryptionUtils;
-    use Thresh\Helper\Loader;
-    use Thresh\Helper\Utils;
+    use Thresh_Core\Constants\Platforms;
+    use Thresh_Core\Constants\Regions;
+    use Thresh_Core\Utils\Loader;
+    use Thresh_Core\Utils\Util;
 
     $encrypted_api_key = EncryptionUtils::encrypt('');
     Config::setApiKey($encrypted_api_key);
@@ -31,6 +31,7 @@
         <?php
         if(isset($_GET["name"])) {
             $summonerName = str_replace(" ", "", $_GET["name"]);
+            $realName = $summonerName;
             $summoner = Summoner::getSummonerByName($summonerName);
             $game = new ActiveGame($summoner);
             if ($game->exists()) {
@@ -49,10 +50,10 @@
                         echo "<tr class='game-player-row'>";
                     }
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
-                    echo "<td><img alt='". $player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . "'> " . $player->getChampion()->getName() . "</td>";
+                    echo "<td><img alt='". $player->getChampion()->getName()."' class='small-icon' src='" . Util::getChampionIconURL($player->getChampion()) . "'> " . $player->getChampion()->getName() . "</td>";
                     echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
-                    echo "<td><img alt='".$player->getSummonerSpell1()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell1()->getSprite())."'>";
-                    echo "<img alt='".$player->getSummonerSpell2()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell2()->getSprite())."'></td>";
+                    echo "<td><img alt='".$player->getSummonerSpell1()->getName()."' class='small-icon' src='data:image/png;base64,".Util::getBase64EncodedImageFromSprite($player->getSummonerSpell1()->getSprite())."'>";
+                    echo "<img alt='".$player->getSummonerSpell2()->getName()."' class='small-icon' src='data:image/png;base64,".Util::getBase64EncodedImageFromSprite($player->getSummonerSpell2()->getSprite())."'></td>";
                     echo "</tr>";
                 }
                 echo "</table><p class='game-player-row' style='text-align: center; font-size: 30px; font-weight: bold; color: white; margin-top: 0; margin-bottom: 0;'>VS</p><table class='background-red-team'>";
@@ -69,16 +70,17 @@
                     }
                     echo "<td style='width=\"250px\"'><a href='summoner.php?name=" . $player->getSummonername() . "'>" . $player->getSummonername() . "</a></td>";
                     echo "<td><img alt='".$player->getChampion()->getName()."' class='small-icon' src='" . Utils::getChampionIconURL($player->getChampion()) . "'> " . $player->getChampion()->getName() . "</td>";
-                    echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Utils::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
-                    echo "<td><img alt='".$player->getSummonerSpell1()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell1()->getSprite())."'>";
-                    echo "<img alt='".$player->getSummonerSpell2()->getName()."' class='small-icon' src='data:image/png;base64,".Utils::getBase64EncodedImageFromSprite($player->getSummonerSpell2()->getSprite())."'></td>";
+                    echo "<td><img alt='".$keyRune->getName()."' class='small-icon' src='" . Util::getRuneIconURL($keyRune) . "'>" . $keyRune->getName()."</td>";
+                    echo "<td><img alt='".$player->getSummonerSpell1()->getName()."' class='small-icon' src='data:image/png;base64,".Util::getBase64EncodedImageFromSprite($player->getSummonerSpell1()->getSprite())."'>";
+                    echo "<img alt='".$player->getSummonerSpell2()->getName()."' class='small-icon' src='data:image/png;base64,".Util::getBase64EncodedImageFromSprite($player->getSummonerSpell2()->getSprite())."'></td>";
                     echo "</tr>";
                 }
                 echo "</table><button onclick='location.href=\"summoner.php?name=".$_GET["name"]."\";'>Zurück</button>";
             } else {
                 echo "<p>No active Game found for this Summoner!</p>";
             }
-        }else{
+        } else {
+            $realName = "";
             echo "<p>No Summonername specified!</p>";
         }?>
         <script type="text/javascript">
