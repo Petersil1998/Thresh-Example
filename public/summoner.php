@@ -39,13 +39,14 @@
         <?php
             if(empty($_GET["name"])){
                 echo "<p>No Summonername specified</p>";
+                $summoner = null;
             } else {
                 $summonerName = str_replace(" ", "", $_GET["name"]);
                 $summoner = Summoner::getSummonerByName($summonerName);
                 if(!$summoner){
                     echo "<p>Summoner not found</p>";
                 } else {
-                    echo "<div><div><img alt='Profile Icon' src='" .Utils::getProfileIconURL($summoner)."' style='width: 200px; height: 200px;' class='center profile-icon'></div>";
+                    echo "<div><div><img alt='Profile Icon' src='" . Util::getProfileIconURL($summoner->getProfileIcon())."' style='width: 200px; height: 200px;' class='center profile-icon'></div>";
                     echo "<div><table style='border: 0; margin-top: 10px'>";
                     echo "<tr><td class='noborder'>Summonername:</td><td class='noborder'>" . $summoner->getSummonername() . "</td></tr>";
                     echo "<tr><td class='noborder'>Level:</td><td class='noborder'>" . $summoner->getSummonerLevel() . "</td></tr>";
