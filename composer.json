@@ -1,6 +1,8 @@
 {
     "require": {
-        "petersil98/thresh": "1.*",
+        "petersil98/thresh-stats": "dev-master",
+        "petersil98/thresh": "dev-master",
+        "petersil98/thresh-core": "dev-master",
         "twig/twig": "^2.0"
     }
 }

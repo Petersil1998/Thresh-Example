@@ -4,27 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9de432b2662f82af70c2b6e4845722b7",
+    "content-hash": "aefb26ec61004b2b370722304c8d578e",
     "packages": [
         {
             "name": "petersil98/thresh",
-            "version": "1.2.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Petersil1998/Thresh.git",
-                "reference": "91ca347916a6c3c772619d3f480dbbd6a0b31760"
+                "reference": "fa2473350d59cb4cd9797e2a2a38ac693d8874b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/91ca347916a6c3c772619d3f480dbbd6a0b31760",
-                "reference": "91ca347916a6c3c772619d3f480dbbd6a0b31760",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/fa2473350d59cb4cd9797e2a2a38ac693d8874b5",
+                "reference": "fa2473350d59cb4cd9797e2a2a38ac693d8874b5",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-gd": "*",
                 "ext-json": "*",
-                "ext-openssl": "*"
+                "ext-openssl": "*",
+                "petersil98/thresh-core": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -39,7 +40,73 @@
                 }
             ],
             "description": "This is a library, that takes over the communication with the riot games API and provides the filled Objects",
-            "time": "2020-08-31T14:08:51+00:00"
+            "time": "2020-09-18T23:44:40+00:00"
+        },
+        {
+            "name": "petersil98/thresh-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Petersil1998/Thresh-Core.git",
+                "reference": "d94adf298db75b0cf19522addab9c396c6dd1c5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh-Core/zipball/d94adf298db75b0cf19522addab9c396c6dd1c5a",
+                "reference": "d94adf298db75b0cf19522addab9c396c6dd1c5a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Thresh_Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Peter Silbernagl"
+                }
+            ],
+            "description": "This is the core module for the Thresh Libraries",
+            "time": "2020-09-19T00:14:50+00:00"
+        },
+        {
+            "name": "petersil98/thresh-stats",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Petersil1998/Thresh-Stats.git",
+                "reference": "044d3416f4fdfab8f8bbbc9fe4e0ebff604e29b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh-Stats/zipball/044d3416f4fdfab8f8bbbc9fe4e0ebff604e29b6",
+                "reference": "044d3416f4fdfab8f8bbbc9fe4e0ebff604e29b6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "petersil98/thresh": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Thresh_Stats\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Peter Silbernagl"
+                }
+            ],
+            "description": "This is a extension for the petersil98/thresh library. This library provides useful data and stats",
+            "time": "2020-08-31T19:03:32+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -235,7 +302,11 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "petersil98/thresh-stats": 20,
+        "petersil98/thresh": 20,
+        "petersil98/thresh-core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
