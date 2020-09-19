@@ -67,7 +67,7 @@ use Thresh\Entities\Match\MatchDetails;
                             'errorMessage' => 'Summoner doesn\'t exist',
                         ));
                     } else {
-                        $game = new ActiveGame($summoner);
+                        $game = new ActiveGame($summoner->getId());
                         echo $twig->render('summoner.twig', array(
                             'summoner'          => $summoner,
                             'game'              => $game,
@@ -85,7 +85,7 @@ use Thresh\Entities\Match\MatchDetails;
                 } else {
                     $summonerName = str_replace(" ", "", $_GET["name"]);
                     $summoner = Summoner::getSummonerByName($summonerName);
-                    $game = new ActiveGame($summoner);
+                    $game = new ActiveGame($summoner->getId());
                     if (!$game->exists()) {
                         echo $twig->render('error.twig', array(
                             'errorMessage' => 'Player isn\'t currently in a game',

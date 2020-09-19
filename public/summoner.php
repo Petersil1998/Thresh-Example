@@ -54,7 +54,7 @@
                     echo "<tr><td class='noborder' style='vertical-align: top'>Revision Date:</td><td class='noborder'>" . date("d. F Y G:i:s", $summoner->getRevisionDate()) . "</td></tr>";
                     echo "</table></div></div>";
 
-                    $game = new ActiveGame($summoner);
+                    $game = new ActiveGame($summoner->getId());
 
                     if ($game->exists()) {
                         echo "<a href='game.php?name=" . $summoner->getSummonername() . "'><button>View Live Game</button></a>";
