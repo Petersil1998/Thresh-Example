@@ -39,8 +39,8 @@ use Thresh\Entities\Match\MatchDetails;
         return Utils::getChampionIconURL($championId);
     });
     $twig->addFunction($function);
-    $function = new TwigFunction('getProfileIconURL', function ($summoner) {
-        return Utils::getProfileIconURL($summoner);
+    $function = new TwigFunction('getProfileIconURL', function ($profileIconId) {
+        return Util::getProfileIconURL($profileIconId);
     });
     $twig->addFunction($function);
     $function = new TwigFunction('getRuneIconURL', function ($rune) {
