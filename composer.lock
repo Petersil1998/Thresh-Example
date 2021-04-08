@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Petersil1998/Thresh.git",
-                "reference": "fa2473350d59cb4cd9797e2a2a38ac693d8874b5"
+                "reference": "c77e6538540a5e03d1b397b95ae39df9b6642ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/fa2473350d59cb4cd9797e2a2a38ac693d8874b5",
-                "reference": "fa2473350d59cb4cd9797e2a2a38ac693d8874b5",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh/zipball/c77e6538540a5e03d1b397b95ae39df9b6642ea9",
+                "reference": "c77e6538540a5e03d1b397b95ae39df9b6642ea9",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,7 @@
                 }
             ],
             "description": "This is a library, that takes over the communication with the riot games API and provides the filled Objects",
-            "time": "2020-09-18T23:44:40+00:00"
+            "time": "2021-04-08T21:21:49+00:00"
         },
         {
             "name": "petersil98/thresh-core",
@@ -48,15 +48,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Petersil1998/Thresh-Core.git",
-                "reference": "d94adf298db75b0cf19522addab9c396c6dd1c5a"
+                "reference": "14b587dc8d78f359b2400dcf469a792dfc18c42b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Petersil1998/Thresh-Core/zipball/d94adf298db75b0cf19522addab9c396c6dd1c5a",
-                "reference": "d94adf298db75b0cf19522addab9c396c6dd1c5a",
+                "url": "https://api.github.com/repos/Petersil1998/Thresh-Core/zipball/14b587dc8d78f359b2400dcf469a792dfc18c42b",
+                "reference": "14b587dc8d78f359b2400dcf469a792dfc18c42b",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
+                "ext-gd": "*",
+                "ext-json": "*",
                 "php": ">=7.1"
             },
             "type": "library",
@@ -72,7 +75,7 @@
                 }
             ],
             "description": "This is the core module for the Thresh Libraries",
-            "time": "2020-09-19T00:14:50+00:00"
+            "time": "2021-04-08T20:16:36+00:00"
         },
         {
             "name": "petersil98/thresh-stats",
